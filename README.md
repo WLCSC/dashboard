@@ -5,7 +5,7 @@ Appdashboard
 How To
 ------
 * bundle install
-* edit/create config/database.yml
+* edit/create config/database.yml and config/app_config.yml
 * Populate your data
 
     Appdashboard is free software: you can redistribute it and/or modify
