@@ -1,0 +1,18 @@
+<div class="treebox">
+    <table class="table svctable">
+        <tr>
+            <td rowspan="2" width="50"><%= service_icon(service.status) %></td>
+            <td><% if admin? %><%= link_to "Edit", edit_service_path(service), :class => 'btn btn-mini btn-primary' %> <% end %><%= link_to service.name, service.url %></td>
+            <td><%= !service.github.empty? ? ('<span class="pull-right">' + link_to(i('github'), service.github, :class => 'github-link icon-2x') + '</span>').html_safe : "" %></td>
+        </tr>
+        <tr>
+            <td><%= service.description %></td>
+            <td><span class="pull-right"><%= service.message %><br/><span class="byline">at <%= nice_datetime(service.messages.count > 0 ? service.messages.last.updated_at : Time.now) %></span></span></td>
+        </tr>
+    </table>
+    <% if service.services.count > 0 %>
+        <% service.services.each do |s| %>
+            <%= render :partial => 'services/svc', :locals => {:service => s } %>
+        <% end %>
+    <% end %>
+</div>

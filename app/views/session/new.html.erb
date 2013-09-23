@@ -1,0 +1,5 @@
+<h3>Enable Admin Mode</h3>
+<%= form_tag session_create_path do %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Go", :class => 'btn btn-large btn-success' %>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  url: MyString
+  description: MyText
+  status: 1
+  github: MyString
+  server_id: 1
+
+two:
+  name: MyString
+  url: MyString
+  description: MyText
+  status: 1
+  github: MyString
+  server_id: 1

@@ -1,0 +1,35 @@
+body {
+    background-image: image-url("background.png");
+}
+
+.treebox {
+    margin-left: 2em;
+    margin-top: 0.5em;
+    padding: 4px;
+    padding-right: 0px;
+    border: 1px solid rgba(128,128,128,0.05);
+    background-color: rgba(128,128,128,0.05);
+}
+
+.byline {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.github-link {
+    color: black;
+
+    :hover {
+        color: #4183C4;
+        text-decoration: none;
+    }
+}
+
+.table.svctable {
+    margin-bottom: 2px;
+
+    td {
+        padding: 2px 4px;
+        border: none;
+    }
+}

@@ -1,0 +1,35 @@
+<h1>Listing services</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Server</th>
+            <th>Status Message</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @services.each do |service| %>
+            <tr>
+                <td><%= service_icon service.status, '2x' %></td>
+                <td><%= link_to service.name, service %></td>
+                <td><%= service.description %></td>
+                <td><%= service.server ? link_to(service.server.name, service.server) : '-' %></td>
+                <td><%= service.message %></td>
+                <th><%= link_to 'Update Status', new_message_path(:service_id => service.id), :class => 'btn btn-inverse btn-mini' %></td>
+                <td><%= link_to 'Edit', edit_service_path(service), :class => 'btn btn-mini btn-primary' %></td>
+                <td><%= link_to 'Remove', service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-mini' %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service', new_service_path %>
