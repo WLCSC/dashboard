@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
     private
     def admin?
-        session[:adminkey] == "password"
+        session[:adminkey] == APP_CONFIG[:admin_password] 
     end
 
     def check_for_admin

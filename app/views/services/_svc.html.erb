@@ -2,7 +2,7 @@
     <table class="table svctable">
         <tr>
             <td rowspan="2" width="50"><%= service_icon(service.status) %></td>
-            <td><% if admin? %><%= link_to "Edit", edit_service_path(service), :class => 'btn btn-mini btn-primary' %> <% end %><%= link_to service.name, service.url %></td>
+            <td><% if admin? %><%= link_to "Update", new_message_path(:service_id => service.id), :class => 'btn btn-mini btn-primary' %> <% end %><%= link_to service.name, service.url %></td>
             <td><%= !service.github.empty? ? ('<span class="pull-right">' + link_to(i('github'), service.github, :class => 'github-link icon-2x') + '</span>').html_safe : "" %></td>
         </tr>
         <tr>

@@ -1,6 +1,6 @@
 module ApplicationHelper
     def admin?
-        session[:adminkey] == "password"
+        session[:adminkey] == APP_CONFIG[:admin_password] 
     end
 
 	def time_delta time
