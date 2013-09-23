@@ -4,7 +4,7 @@
         <% group.each do |svc| %>
             <td width="25%">
                 <% if svc %>
-                    <%= link_to svc.name, svc.url, :class => svc.button_class, :title => svc.title %>
+                    <%= link_to svc.name, (@external && !svc.external ? '#' : svc.url), :class => svc.button_class, :title => svc.title %>
                 <% end %>
             </td>
         <% end %>
@@ -23,3 +23,5 @@
 <% else %>
     <div style="text-align: center"><%= link_to "- Stop Showing Technical Services -", root_path() %></div>
 <% end %>
+
+<%= @external %>
