@@ -24,6 +24,17 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+      <p>
+      <%= f.label :external %>
+      <%= f.check_box :external %>
+      </p>
+
+      <p>
+      <%= f.label :technical %>
+      <%= f.check_box :technical %>
+      </p>
+  </div>
+  <div class="field">
     <%= f.label :github %><br>
     <%= f.text_field :github %>
   </div>

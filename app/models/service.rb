@@ -3,6 +3,10 @@ class Service < ActiveRecord::Base
     has_many :services, :foreign_key => 'server_id'
     belongs_to :server, :class_name => 'Service'
 
+  def nice_datetime d
+		d.strftime("%I:%M %p %m-%d-%Y")
+  end
+
     def status
         if server && server.status != 1
             server.status
@@ -23,6 +27,18 @@ class Service < ActiveRecord::Base
                 messages.last.description
             else
                 "All is well."
+            end
+        end
+    end
+
+    def title
+         if server && server.status != 1
+            "At #{nice_datetime server.message.updated_at} from #{server.name}: " + server.message
+        else
+            if messages.count > 0
+                "At #{nice_datetime messages.last.updated_at}: " + messages.last.description
+            else
+                "At #{nice_datetime Time.now}: All is well."
             end
         end
 
