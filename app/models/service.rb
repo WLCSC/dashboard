@@ -35,4 +35,18 @@ class Service < ActiveRecord::Base
             [id]
         end
     end
+
+    def button_class
+        arr = ['btn', 'btn-block']
+        case status
+        when 1
+            arr << 'btn-success'
+        when 2
+            arr << 'btn-warning'
+        when 3
+            arr << 'btn-danger'
+        else
+            arr << 'btn-info'
+        end 
+    end
 end

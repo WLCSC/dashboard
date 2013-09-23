@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :server_id %><br>
-    <%= f.select :server_id, [["None", nil]] + Service.select{|s| s.child_ids.include?(s.id) }.map{|s| [s.name, s.id]} %>
+    <%= f.select :server_id, [["None", nil]] + Service.all.map{|s| [s.name, s.id]} %>
   </div>
   <div class="actions">
       <%= f.submit :class => 'btn btn-primary' %>
