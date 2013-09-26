@@ -1,11 +1,11 @@
 <div class="treebox">
     <table class="table svctable">
         <tr>
-            <td rowspan="2" width="50"><%= service_icon(service.status) %></td>
-            <td><% if admin? %><%= link_to "Update", new_message_path(:service_id => service.id), :class => 'btn btn-mini btn-primary' %> <% end %><%= link_to service.name, service.url %></td>
+            <td width="50"><%= service_icon(service.status) %></td>
+            <td width="140"><% if admin? %><%= link_to "Update", new_message_path(:service_id => service.id), :class => 'btn btn-mini btn-primary' %> <% end %><%= link_to service.name, (@external && !service.external ? '#' : service.url), :class => service.button_class, :title => service.title %></td>
             <td><%= service.description %></td>
-            <td><span class="pull-right"><%= service.message %><br/><span class="byline">at <%= nice_datetime(service.messages.count > 0 ? service.messages.last.updated_at : Time.now) %></span></span></td>
-            <td><%= !service.github.empty? ? ('<span class="pull-right">' + link_to(i('github'), service.github, :class => 'github-link icon-2x') + '</span>').html_safe : "" %></td>
+            <td><span class="pull-right" style="text-align: right;"><%= service.message %><br/><span class="byline">at <%= nice_datetime(service.messages.count > 0 ? service.messages.last.updated_at : Time.now) %></span></span></td>
+            <td width="42"><%= !service.github.empty? ? ('<span class="pull-right">' + link_to(i('github'), service.github, :class => 'github-link icon-2x') + '</span>').html_safe : "" %></td>
         </tr>
     </table>
     <% if service.services.count > 0 %>

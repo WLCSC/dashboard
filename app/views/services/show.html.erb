@@ -1,18 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
+<h2><%= @service.name %></h2>
+<i><%= @service.description %></i>
 
 <p>
   <strong>Url:</strong>
-  <%= @service.url %>
+  <%= link_to @service.url, @service.url %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @service.description %>
+  <strong>Github:</strong>
+  <%= link_to @service.github, @service.github %>
 </p>
 
 <p>
@@ -21,14 +17,12 @@
 </p>
 
 <p>
-  <strong>Github:</strong>
-  <%= @service.github %>
-</p>
-
-<p>
   <strong>Server:</strong>
-  <%= @service.server_id %>
+  <% if @service.server %>
+      <%= link_to @service.server.name, @service.server %>
+  <% else %>
+      -
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<%= link_to 'Edit', edit_service_path(@service), :class => 'btn btn-primary' %> 

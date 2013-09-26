@@ -8,6 +8,6 @@ class WelcomeController < ApplicationController
           @top_services = @services.where(:server_id => Service.where(:technical => true).ids + [nil])
       end
 
-      @external = request.remote_ip.match(/^10\.10\./) ? true : false
+      @external = request.remote_ip.match(/^10\.10\./) ? false : true
   end
 end
