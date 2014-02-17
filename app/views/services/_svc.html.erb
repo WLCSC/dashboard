@@ -9,7 +9,7 @@
         </tr>
     </table>
     <% if service.services.count > 0 %>
-        <% service.services.each do |s| %>
+        <% service.services.sort{|a,b| [b.status, a.name] <=> [a.status, b.name]}.each do |s| %>
             <%= render :partial => 'services/svc', :locals => {:service => s } %>
         <% end %>
     <% end %>

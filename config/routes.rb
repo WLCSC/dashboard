@@ -8,6 +8,8 @@ Dashboard::Application.routes.draw do
 
   root "welcome#index"
   get "welcome/index"
+  get "index" => 'welcome#index'
+  get 'published' => 'welcome#published'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

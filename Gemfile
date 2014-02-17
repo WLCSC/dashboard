@@ -54,3 +54,4 @@ gem "bootstrap-sass"
 gem "sqlite3"
 #gem "resque"
 gem "unicorn"
+gem 'jpbuilder'

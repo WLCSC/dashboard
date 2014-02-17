@@ -7,6 +7,10 @@ class Service < ActiveRecord::Base
 		d.strftime("%I:%M %p %m-%d-%Y")
   end
 
+  def address
+      self.url
+  end
+
     def status
         if server && server.status != 1
             server.status
@@ -33,7 +37,7 @@ class Service < ActiveRecord::Base
 
     def title
          if server && server.status != 1
-            "At #{nice_datetime server.message.updated_at} from #{server.name}: " + server.message
+            "At #{nice_datetime server.messages.last.updated_at} from #{server.name}: " + server.message
         else
             if messages.count > 0
                 "At #{nice_datetime messages.last.updated_at}: " + messages.last.description

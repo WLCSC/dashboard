@@ -1,11 +1,17 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :check_for_admin
+  before_action :check_for_admin, :except => [:index]
 
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+      if params[:outages]
+          @services = Service.all.delete_if{|s| s.status == 1}
+      elsif params[:published]
+          @services = Service.where(:publish => true).order(:name)
+      else
+        @services = Service.all
+      end
   end
 
   # GET /services/1
@@ -70,6 +76,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :url, :description, :status, :github, :server_id, :technical, :external)
+      params.require(:service).permit(:name, :url, :description, :status, :github, :server_id, :technical, :external, :publish)
     end
 end
